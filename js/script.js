@@ -4,6 +4,7 @@
     snack1() ;
     snack2() ;
     snack3() ;
+    snack4() ;
 
     function snack1(){
         const tavoloVip = [ 'Brad Pitt',
@@ -144,6 +145,89 @@
             Peso della bicicletta: ${lightBike.peso} kg.
         `;
         snack3Container.append(lightBikeMsg);
+    }
+
+    function snack4(){
+        const footTeams = [
+            {
+                nome: 'Roma',
+                puntiFatti: 0,
+                falliSubiti: 0 
+            },
+            {
+                nome: 'Milan',
+                puntiFatti: 0,
+                falliSubiti: 0 
+            },
+            {
+                nome: 'Inter',
+                puntiFatti: 0,
+                falliSubiti: 0 
+            },
+            {
+                nome: 'Juventus',
+                puntiFatti: 0,
+                falliSubiti: 0 
+            },
+            {
+                nome: 'Napoli',
+                puntiFatti: 0,
+                falliSubiti: 0 
+            },
+            {
+                nome: 'Lazio',
+                puntiFatti: 0,
+                falliSubiti: 0 
+            },
+            {
+                nome: 'Torino',
+                puntiFatti: 0,
+                falliSubiti: 0 
+            },
+            {
+                nome: 'Sassuolo',
+                puntiFatti: 0,
+                falliSubiti: 0 
+            },
+            {
+                nome: 'Genoa',
+                puntiFatti: 0,
+                falliSubiti: 0 
+            },
+            {
+                nome: 'Sampdoria',
+                puntiFatti: 0,
+                falliSubiti: 0 
+            },
+        ];
+
+        footTeams.forEach((value) => {
+            value.puntiFatti = getRndInteger(0,100);
+            value.falliSubiti = getRndInteger(0,75);
+        });
+        console.log('Ecco tutte le squadre del torneo: ');
+        console.log(footTeams);
+
+        let footTeamsNoPoints = [];
+
+        footTeams.forEach((value) => {
+            const currname =  value.nome;
+            const currfails =  value.falliSubiti;
+            footTeamsNoPoints.push({currname , currfails});
+        });
+
+        const teamsTable = document.querySelector('tbody');
+
+        footTeamsNoPoints.forEach((value)=>{
+            const tbrow = document.createElement('tr');
+            tbrow.innerHTML = `
+                            <td>${value.currname}</td>
+                            <td>${value.currfails}</td>
+                            `;
+            teamsTable.append(tbrow);
+        })
+
+        
     }
 
     function getRndInteger(min, max) {
