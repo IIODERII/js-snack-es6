@@ -15,16 +15,13 @@
                             'George Clooney', 
                             'Amal Clooney', 
                             'Maneskin'];
-    
-        const listaSegnaPosto = [];
-    
-        tavoloVip.forEach((value, index) => {
-            const currentUser = {
+        
+        const listaSegnaPosto = tavoloVip.map((value, index) => {
+            return {
                 tableName: 'Tavolo Vip',
                 guestName: value,
                 place: index+1
             }
-            listaSegnaPosto.push(currentUser);
         })
         console.log('Lista segnaposti:');
         console.log(listaSegnaPosto);
